@@ -24,7 +24,7 @@ git clone [https://github.com/rafacore/find-games.git]
 
 After the project is cloned you just need to go in your project’s folder using the commands terminal, then simply run it.
 
-npm install - to install the dependencies in the project
+npm install - to install the dependencies in the project.
 npm start – to run the app.
 
 Open http://localhost:3000 to view it in the browser.
