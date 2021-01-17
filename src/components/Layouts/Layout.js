@@ -13,7 +13,7 @@ const Layout = ({ isLoading, children, ...props }) => {
       <header>
         <Title
           type="h1"
-          title={"Find Games"}
+          title={"Find & track the best free-to-play games!"}
           subtitle={"Search for what to play next!"}
           className={classes.title}
         />
