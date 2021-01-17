@@ -32,7 +32,7 @@ const GameBuilder = () => {
     } else {
       setGames(games);
     }
-  }, [searchText, games]);
+  }, [searchText]);
 
   useEffect(() => {
     getListPlatform(selectedValue);
@@ -57,6 +57,12 @@ const GameBuilder = () => {
 
   const getListCat = async selectedValueCat => {
     const data = await GamesApi.getListCat(selectedValueCat);
+    setGames(data);
+    return data;
+  };
+
+  const getListSortBy = async selectedValueCat => {
+    const data = await GamesApi.getListSortBy(selectedValueCat);
     setGames(data);
     return data;
   };
@@ -97,10 +103,12 @@ const GameBuilder = () => {
           <SearchBox
             value={searchText}
             handleChange={e => setSearchText(e.target.value)}
+            placeholder={"Search by name..."}
           />
           <Filters
             handleChangeCat={e => handleChangeCat(e)}
             handleChangePlat={e => handleChangeFilterPlat(e)}
+            onHandleChangeSortBy={e => handleChangeFilterPlat(e)}
           />
 
           <Container>

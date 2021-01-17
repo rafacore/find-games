@@ -3,11 +3,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 30px 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 h3 {
-  margin-top: -30px;
-  color: #fff;
+  margin-top: 0px;
+  color: #474b4f;
   text-align: center;
 }
 @media only screen and (max-width: 600px) {
