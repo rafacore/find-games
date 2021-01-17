@@ -1,0 +1,11 @@
+.searchBar {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+
+  height: 32px;
+  border-radius: 50px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: 12px;
+}

@@ -1,0 +1,88 @@
+.gameInfo {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 2fr;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  /* grid-auto-columns: 300px; */
+  background-color: #fff;
+  border-radius: 6px;
+  color: #444;
+  text-align: left;
+  padding: 20px;
+}
+.one > img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+p {
+  color: #474b4f;
+
+  font-weight: bold;
+  margin-top: 0px;
+  /* line-height: 1.6; */
+}
+
+.one > p:nth-child(2) {
+  margin-top: 40px;
+}
+p > label {
+  margin-right: 5px;
+  font-weight: 400;
+}
+
+.two > button {
+  text-align: right !important;
+  /* background-color: red; */
+  margin-left: 92%;
+
+  /* border: 1px solid red; */
+  /* grid-auto-rows: 1fr 1fr 1fr; */
+  /* grid-column: 3 / 9; */
+}
+.tone > h1 {
+  /* grid-row: 1; */
+  grid-column: 1 / 3;
+  color: #86c232;
+  text-decoration: none;
+
+  font-weight: 900;
+  margin-top: 0px;
+}
+.tone > p {
+  /* grid-row: 1; */
+  grid-column: 1 / 3;
+  color: #474b4f;
+  text-decoration: none;
+
+  font-weight: 500;
+  margin-top: 0px;
+  line-height: 1.6;
+}
+.ttwo {
+  border-top: 1px solid #ccc;
+}
+
+.screenshotSection {
+  display: grid;
+  grid-gap: 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-auto-rows: minmax(300px); */
+  background-color: #fff;
+  padding: 20px;
+}
+.thumbCard {
+  height: 250px;
+  margin-top: 0px;
+}
+.thumbCard > img {
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 1px;
+}

@@ -1,0 +1,8 @@
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  color: var(--lightsaber-color);
+  background-color: var(--white-color);
+}
