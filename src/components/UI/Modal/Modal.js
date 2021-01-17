@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import classes from "./Modal.module.css";
+
 import Image from "../../Image/Image";
 
 const MODAL_STYLES = {

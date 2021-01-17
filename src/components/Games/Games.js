@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import PropTypes from "prop-types";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./Games.module.css";
 import Title from "../UI/Title/Title";
 const Image = React.lazy(() => import("../Image/Image"));
@@ -17,11 +17,6 @@ const Games = ({
   releaseDate,
   thumbnail,
 }) => {
-  const history = useHistory();
-
-  // const showDetails = () =>
-  //   history.push(routes.GameDetail.path.replace(":id", id));
-
   return (
     <section className={classes.game}>
       <Title type="h2" title={title} />

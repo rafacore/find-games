@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { classes } from "./Title.module.css";
 
 const Title = ({ type, title, subtitle, ...props }) => {
   if (type === "h1") {

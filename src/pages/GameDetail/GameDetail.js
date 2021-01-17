@@ -4,8 +4,6 @@ import * as GamesApi from "../../services/GamesApi";
 
 import Container from "../../components/Container/Container";
 
-import Modal from "../../components/UI/Modal/Modal";
-
 import Layout from "../../components/Layouts/Layout";
 import Title from "../../components/UI/Title/Title";
 
@@ -15,8 +13,6 @@ const Image = React.lazy(() => import("../../components/Image/Image"));
 
 const GameDetail = () => {
   const [game, setGame] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const history = useHistory();
 
   const { id } = useParams();
 
@@ -106,16 +102,7 @@ const GameDetail = () => {
           {game?.screenshots?.map(screenshot => (
             <div key={screenshot.id} className={classes.thumbCard}>
               <Suspense fallback={<h1>Loading..</h1>}>
-                {/* <Modal
-                  open={isOpen}
-                  src={screenshot.image}
-                  onClose={() => setIsOpen(false)}
-                ></Modal> */}
-                <Image
-                  onClick={key => setIsOpen(true)}
-                  src={screenshot.image}
-                  alt={game?.title}
-                />
+                <Image src={screenshot.image} alt={game?.title} />
               </Suspense>
             </div>
           ))}

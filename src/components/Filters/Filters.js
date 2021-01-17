@@ -1,6 +1,5 @@
 import React from "react";
 
-import PropTypes from "prop-types";
 import Dropdown from "../UI/Dropdown/Dropdown";
 import classes from "./Filters.module.css";
 
