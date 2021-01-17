@@ -30,6 +30,17 @@ const cat = [
   },
 ];
 
+export function customTheme(theme) {
+  return {
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary25: "#86c232",
+      primary: "green",
+    },
+  };
+}
+
 const Filters = ({ handleChangePlat, handleChangeCat }) => {
   return (
     <div className={classes.filtersBar}>
@@ -37,13 +48,19 @@ const Filters = ({ handleChangePlat, handleChangeCat }) => {
         options={platform}
         onChange={handleChangePlat}
         placeholder="platform"
+        theme={customTheme}
       />
       <Dropdown
         options={cat}
         onChange={handleChangeCat}
         placeholder="categories"
+        theme={customTheme}
       />
-      <Dropdown placeholder="Sort by" />
+      <Dropdown
+        placeholder="Sort by"
+        //  onChange={handleChangeSort}
+        theme={customTheme}
+      />
     </div>
   );
 };

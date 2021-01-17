@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { classes } from "./Title.module.css";
 
-const Title = ({ type, title, ...props }) => {
+const Title = ({ type, title, subtitle, ...props }) => {
   if (type === "h1") {
-    return <h1 className={props.className}>{title}</h1>;
+    return (
+      <div>
+        <h1 className={props.className}>{title}</h1>
+        <h3>{subtitle}</h3>
+      </div>
+    );
   }
   if (type === "h2") {
     return <h2 className={props.className}>{title}</h2>;

@@ -11,7 +11,12 @@ const Layout = ({ isLoading, children, ...props }) => {
     <div style={props.style}>
       {isLoading && <Loading />}
       <header>
-        <Title type="h1" title={"Find Games"} className={classes.title} />
+        <Title
+          type="h1"
+          title={"Find Games"}
+          subtitle={"Search for what to play next!"}
+          className={classes.title}
+        />
         <nav>
           <Link to="/" exact="true">
             Home
@@ -19,7 +24,9 @@ const Layout = ({ isLoading, children, ...props }) => {
         </nav>
       </header>
       <main>{children}</main>
-      <footer>footer</footer>
+      <footer>
+        made with ❤️ <b>by Rafael</b>{" "}
+      </footer>
     </div>
   );
 };

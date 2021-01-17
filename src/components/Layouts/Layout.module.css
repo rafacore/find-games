@@ -10,3 +10,12 @@
   text-align: center;
   color: #86c232;
 }
+footer {
+  height: 100px;
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  text-align: center;
+}

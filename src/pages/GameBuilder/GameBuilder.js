@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState, useContext, Suspense } from "react";
 import { useQuery } from "react-query";
 
 import * as GamesApi from "../../services/GamesApi";
@@ -9,12 +9,16 @@ import SearchBox from "../../components/SearchBox/SearchBox.js";
 import Container from "../../components/Container/Container.js";
 import ToggleTheme from "../../components/ToggleTheme/ToggleTheme.js";
 import Loading from "../../components/Loading/Loading";
+import ThemeContext, { themes } from "../../theme-context";
 
 import classes from "./GameBuilder.module.css";
 const Games = React.lazy(() => import("../../components/Games/Games"));
 const GameBuilder = () => {
   const [games, setGames] = useState(null);
   const [searchText, setSearchText] = useState([]);
+  const [themestate, setTheme] = useState(
+    JSON.parse(localStorage.getItem("theme"))
+  );
 
   const [selectedValue, setSelectedValue] = useState([]);
   const [selectedValueCat, setSelectedValueCat] = useState([]);
@@ -67,33 +71,49 @@ const GameBuilder = () => {
 
   const { data, isLoading, error } = useQuery("gameList", loadGames);
 
+  const theme = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    if (themestate === themes.dark) {
+      setTheme(themes.light);
+
+      localStorage.setItem("theme", JSON.stringify(themes.light));
+    } else {
+      setTheme(themes.dark);
+
+      localStorage.setItem("theme", JSON.stringify(themes.dark));
+    }
+  };
+
   if (isLoading) return <Loading />;
 
   if (error) return "An error has occurred: " + error.message;
 
   return (
     <>
-      <Layout>
-        <ToggleTheme />
-        <SearchBox
-          value={searchText}
-          handleChange={e => setSearchText(e.target.value)}
-        />
-        <Filters
-          handleChangeCat={e => handleChangeCat(e)}
-          handleChangePlat={e => handleChangeFilterPlat(e)}
-        />
+      <ThemeContext.Provider value={theme}>
+        <Layout isLoading={!games} style={themestate}>
+          <ToggleTheme handleClick={toggleTheme} />
+          <SearchBox
+            value={searchText}
+            handleChange={e => setSearchText(e.target.value)}
+          />
+          <Filters
+            handleChangeCat={e => handleChangeCat(e)}
+            handleChangePlat={e => handleChangeFilterPlat(e)}
+          />
 
-        <Container>
-          <div className={classes.gameList}>
-            {games.map(item => (
-              <Suspense key={item.id} fallback={<Loading />}>
-                <Games key={item.id} {...item} />
-              </Suspense>
-            ))}
-          </div>
-        </Container>
-      </Layout>
+          <Container>
+            <div className={classes.gameList}>
+              {games.map(item => (
+                <Suspense key={item.id} fallback={<Loading />}>
+                  <Games key={item.id} {...item} />
+                </Suspense>
+              ))}
+            </div>
+          </Container>
+        </Layout>
+      </ThemeContext.Provider>
     </>
   );
 };

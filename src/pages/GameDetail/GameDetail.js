@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import * as GamesApi from "../../services/GamesApi";
 
 import Container from "../../components/Container/Container";
@@ -16,6 +16,7 @@ const Image = React.lazy(() => import("../../components/Image/Image"));
 const GameDetail = () => {
   const [game, setGame] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const history = useHistory();
 
   const { id } = useParams();
 
@@ -97,19 +98,19 @@ const GameDetail = () => {
                 {game?.releaseDate}
               </p>
             </div>{" "}
-            <Link to={"/"}> Games List </Link>
+            <Link to={"/games"}> Games List </Link>
           </div>
         </div>
 
         <div className={classes.screenshotSection}>
           {game?.screenshots?.map(screenshot => (
             <div key={screenshot.id} className={classes.thumbCard}>
-              <Suspense>
-                <Modal
+              <Suspense fallback={<h1>Loading..</h1>}>
+                {/* <Modal
                   open={isOpen}
                   src={screenshot.image}
                   onClose={() => setIsOpen(false)}
-                ></Modal>
+                ></Modal> */}
                 <Image
                   onClick={key => setIsOpen(true)}
                   src={screenshot.image}
