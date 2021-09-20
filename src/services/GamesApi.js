@@ -35,6 +35,23 @@ export const getListCat = async (filter = { category: "shooter" }) => {
     return fetch(url).then(res => res.json());
   }
 };
+export const getListCatOptions = async (filter = {}) => {
+  const url = "/api/categories";
+
+  return fetch(`${url}`).then(res => res.json());
+};
+
+export const getListSortBy = async (filter = { category: "shooter" }) => {
+  const url = "/api/games";
+
+  const query = Object.values(filter).join("=");
+
+  if (query.length) {
+    return fetch(`${url}?${query}`).then(res => res.json());
+  } else {
+    return fetch(url).then(res => res.json());
+  }
+};
 
 export const getDetails = async id => {
   if (isNaN(id)) {

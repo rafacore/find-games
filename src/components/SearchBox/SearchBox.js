@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classes from "./SearchBox.module.css";
 
-const SearchBox = props => {
+const SearchBox = (props, placeholderText) => {
+  const { placeholder } = props;
   return (
     <>
       {" "}
@@ -11,6 +12,7 @@ const SearchBox = props => {
         type="text"
         value={props.searchText}
         onChange={props.handleChange}
+        placeholder={placeholder}
       ></input>
     </>
   );

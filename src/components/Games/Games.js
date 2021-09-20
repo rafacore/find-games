@@ -46,7 +46,7 @@ const Games = ({
           {releaseDate}
         </p>
         <div className={classes.showDetailsLink}>
-          <Link to={`/game/${id}`}>Show Details > </Link>
+          <Link to={`/game/${id}`}>Show Details &gt; </Link>
         </div>
       </div>
     </section>
